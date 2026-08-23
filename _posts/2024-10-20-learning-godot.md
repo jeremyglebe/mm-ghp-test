@@ -1,6 +1,9 @@
 ---
+layout: post
 title: "Learning Godot"
-excerpt_separator: "<!--more-->"
+date: 2024-10-20
+description: "Learning Godot through Crayon Blaster, a hand-drawn space shooter and a small step back into personal game development."
+image: /assets/posts/2024-10-20/crayon_blaster.png
 categories:
   - Blog
 tags:

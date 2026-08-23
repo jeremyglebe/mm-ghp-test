@@ -1,27 +1,48 @@
-# Minimal Mistakes remote theme starter
+# Jeremy's Place
 
-Click [**Use this template**](https://github.com/mmistakes/mm-github-pages-starter/generate) button above for the quickest method of getting started with the [Minimal Mistakes Jekyll theme](https://github.com/mmistakes/minimal-mistakes).
+The Vue-powered, Markdown-first source for [jeremy.place](https://jeremy.place).
+VitePress turns the files in `_posts/` into static pages; GitHub Pages hosts the
+generated site. There is no database, login, or posting interface.
 
-Contains basic configuration to get you a site with:
+## Publish a post
 
-- Sample posts.
-- Sample top navigation.
-- Sample author sidebar with social links.
-- Sample footer links.
-- Paginated home page.
-- Archive pages for posts grouped by year, category, and tag.
-- Sample about page.
-- Sample 404 page.
-- Site wide search.
+1. Add `_posts/YYYY-MM-DD-short-slug.md`.
+2. Start it with this front matter:
 
-Replace sample content with your own and [configure as necessary](https://mmistakes.github.io/minimal-mistakes/docs/configuration/).
+   ```yaml
+   ---
+   title: "A clear post title"
+   date: 2026-08-23
+   description: "One or two sentences used on the post list and in link previews."
+   tags:
+     - project
+     - update
+   categories:
+     - Blog
+   ---
+   ```
 
----
+3. Write the rest in normal Markdown.
+4. Commit and push to `master`. The GitHub Pages workflow builds and publishes it.
 
-## Troubleshooting
+The date prefix is removed from the public URL, so the example above becomes
+`/posts/short-slug/`. Put images in `public/assets/posts/` and reference them
+as `/assets/posts/...`.
 
-If you have a question about using Jekyll, start a discussion on the [Jekyll Forum](https://talk.jekyllrb.com/) or [StackOverflow](https://stackoverflow.com/questions/tagged/jekyll). Other resources:
+## Work locally
 
-- [Ruby 101](https://jekyllrb.com/docs/ruby-101/)
-- [Setting up a Jekyll site with GitHub Pages](https://jekyllrb.com/docs/github-pages/)
-- [Configuring GitHub Metadata](https://github.com/jekyll/github-metadata/blob/master/docs/configuration.md#configuration) to work properly when developing locally and avoid `No GitHub API authentication could be found. Some fields may be missing or have incorrect data.` warnings.
+```sh
+npm install
+npm run dev
+```
+
+The development server prints the local URL. Restart it after adding or renaming a
+post so the new route is registered. Use `npm run build` to run the same static
+build used by GitHub Pages.
+
+## Deployment
+
+The repository deploys only through GitHub Pages. In the repository settings,
+Pages must use **GitHub Actions** as its source. `public/CNAME` preserves the
+`jeremy.place` custom domain, and `public/.nojekyll` prevents a second Jekyll
+pass over the generated files.
